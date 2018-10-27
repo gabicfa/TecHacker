@@ -35,7 +35,9 @@ def udpScan(targetIp,targetPort):
     except:
         print ("[+] UDP port closed: " + str(targetPort))
     
-    wellKnown(consock, targetPort, "udp")
+    finally:
+        wellKnown(consock, targetPort, "udp")
+        consock.close()
     
 def checkType(ip,port,typeScan,rangeport):
     print ("Port Scan Initiated on: " + ip + "\n") 
